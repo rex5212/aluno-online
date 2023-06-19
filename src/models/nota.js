@@ -14,8 +14,22 @@ class Nota {
         );
     }
 
-    mediaCA() {
-        return "SS";
+    mediaCA(media = this.mediaFinal()) {
+        if (media >= 9 && media <= 10){
+            return `Sua media final foi ${media} com pontuação SS (Superior)`
+        } else if (media >= 7 && media <= 8.9){
+            return `Sua media final foi ${media} com pontuação MS (Médio Superior)`
+        } else if (media >= 5 && media <= 6.9){
+            return `Sua media final foi ${media} com pontuação MM (Médio)`
+        } else if (media >= 3 && media <= 4.9){
+            return `Sua media final foi ${media} com pontuação MI (Médio Inferior)`
+        } else if (media >= 0.1 && media <= 2.9){
+            return `Sua media final foi ${media} com pontuação II (Inferior)`
+        } else if (media == 0){
+            return `Sua media final foi ${media} com pontuação SR (Sem rendimento)`
+        } else {
+            throw new Error("nota inválida");
+        }
     }
 }
 
