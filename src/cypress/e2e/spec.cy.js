@@ -1,5 +1,16 @@
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('http://127.0.0.1:3000')
+    cy.get('#inputMatricula').type('2023100')
+    cy.get('#inputSenha').type('senha123')
+    cy.get('.btn').click()
+    cy.get(':nth-child(4) > .nav-link').click()
+    cy.get('.btn').click()
+    cy.get('#inputDisciplina').select(2)
+    cy.get('#inputProva').select(3)
+    cy.get('#inputArgumentacao').type('prova A3')
+    cy.get('.btn-danger').click()
+    cy.get(':nth-child(5) > .col-md-5').should('to.text', 'ADS038 - Governança de TI')
+    cy.get(':nth-child(9) > .col-md-5').should('to.text', 'ADS038 - Governança de TI')
   })
 })
